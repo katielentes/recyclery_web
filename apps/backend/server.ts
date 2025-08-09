@@ -33,7 +33,7 @@ const corsOptions: CorsOptions = {
     const allowedOrigins = [
       process.env.FRONTEND_URL || '', 
       process.env.FRONTEND_URL_DEV || '', 
-      "https://recyclery-web-frontend-orpin.vercel.app/
+      "https://recyclery-web-frontend-orpin.vercel.app"
     ].filter(Boolean);
 
     if (allowedOrigins.includes(origin || '') || !origin) {
