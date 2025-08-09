@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programs",
+  "info": {
+    "singularName": "program",
+    "pluralName": "programs",
+    "displayName": "Program"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "contentLong": {
+      "type": "blocks"
+    },
+    "learnMoreLink": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "header": {
+      "type": "string"
+    },
+    "programType": {
+      "type": "enumeration",
+      "default": "open-shop",
+      "enum": [
+        "open-shop",
+        "freecyclery",
+        "ftwnb",
+        "classes"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}
