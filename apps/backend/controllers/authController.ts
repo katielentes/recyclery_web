@@ -435,7 +435,7 @@ export async function requestPasswordReset(
     });
   } catch (error) {
     // console.error('Password reset request error:', error);
-    res.status(500).json({ error: `Failed to process password reset request: ${error}'` });
+    res.status(500).json({ error: `Failed to process password reset request: ${error}` });
   }
 }
 
@@ -544,6 +544,6 @@ export async function updatePassword(
     });
   } catch (error) {
     // console.error('Password update error:', error);
-    res.status(500).json({ error: `Failed to update password: ${error}'` });
+    res.status(500).json({ error: `Failed to update password: ${error}` });
   }
 }
