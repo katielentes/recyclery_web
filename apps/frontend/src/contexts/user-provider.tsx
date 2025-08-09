@@ -1,5 +1,4 @@
-import { useEffect, useState, ReactNode } from 'react';
-import React from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import type { User, UserContextType } from '../../types/auth.ts';
 import { UserContext } from './user-context.tsx';
 

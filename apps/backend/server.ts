@@ -30,7 +30,11 @@ interface CorsOptions {
 
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
-    const allowedOrigins = [process.env.FRONTEND_URL || '', process.env.FRONTEND_URL_DEV || '', "https://recyclery-web-fork-frontend-h9nt.vercel.app"];
+    const allowedOrigins = [
+      process.env.FRONTEND_URL || '', 
+      process.env.FRONTEND_URL_DEV || '', 
+      "https://recyclery-web-frontend-orpin.vercel.app/
+    ].filter(Boolean);
 
     if (allowedOrigins.includes(origin || '') || !origin) {
       callback(null, true);
