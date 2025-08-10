@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePrograms } from '../../hooks/useCMS.js';
-import { CMSProgram } from '../../services/cms.js';
+import { CMSProgram, RichTextBlock, RichTextChild, RichTextContent } from '../../services/cms.js';
 import { A, H2, Section } from '../generic/styled-tags.tsx';
 import Program from '../home/program.tsx';
 
@@ -11,85 +11,85 @@ const ProgramsCMSDemo: React.FC = () => {
   console.log('Programs with content:', programs);
 
   // Helper function to convert rich text blocks to React content
-  const convertRichTextToReact = (richText: any): React.ReactNode => {
+  const convertRichTextToReact = (richText: RichTextContent): React.ReactNode => {
     if (!richText || !Array.isArray(richText)) return '';
-    
+
     console.log('Converting rich text:', richText);
-    
-    return richText.map((block: any, blockIndex: number) => {
-      console.log('Processing block:', block);
-      
-      if (block.type === 'paragraph' && block.children) {
-        const content = block.children.map((child: any, childIndex: number) => {
-          console.log('Processing child:', child);
-          
-          // Handle link elements (they have type: 'link' and children)
-          if (child.type === 'link') {
-            const linkText = child.children?.[0]?.text || '';
-            const url = child.url;
-            return (
-              <A key={childIndex} to={url}>
-                {linkText}
-              </A>
-            );
-          }
-          
-          // Handle regular text elements
-          const text = child.text || '';
-          
-          // Handle empty text (might be line break)
-          if (text === '') {
-            return null;
-          }
-          
-          // Create the formatted text element
-          let element = text;
-          
-          // Apply formatting layers
-          if (child.underline) {
-            element = <u>{element}</u>;
-          }
-          if (child.bold) {
-            element = <strong>{element}</strong>;
-          }
-          if (child.italic) {
-            element = <em>{element}</em>;
-          }
-          if (child.strikethrough) {
-            element = <s>{element}</s>;
-          }
-          if (child.code) {
-            element = <code>{element}</code>;
-          }
-          
-          return <React.Fragment key={childIndex}>{element}</React.Fragment>;
-        });
-        
-        return (
-          <React.Fragment key={blockIndex}>
-            {content}
-            {blockIndex < richText.length - 1 && <br />}
-          </React.Fragment>
-        );
-      }
-      
-      // Handle other block types like lists, headings, etc.
-      if (block.type === 'list') {
-        const ListTag = block.format === 'ordered' ? 'ol' : 'ul';
-        return (
-          <ListTag key={blockIndex}>
-            {block.children?.map((item: any, itemIndex: number) => (
-              <li key={itemIndex}>
-                {convertRichTextToReact(item.children)}
-              </li>
-            ))}
-          </ListTag>
-        );
-      }
-      
-      console.log('Unhandled block type:', block.type);
-      return null;
-    }).filter(Boolean);
+
+    return richText
+      .map((block: RichTextBlock, blockIndex: number) => {
+        console.log('Processing block:', block);
+
+        if (block.type === 'paragraph' && block.children) {
+          const content = block.children.map((child: RichTextChild, childIndex: number) => {
+            console.log('Processing child:', child);
+
+            // Handle link elements (they have type: 'link' and children)
+            if (child.type === 'link') {
+              const linkText = child.children?.[0]?.text || '';
+              const url = child.url || '#';
+              return (
+                <A key={childIndex} to={url}>
+                  {linkText}
+                </A>
+              );
+            }
+
+            // Handle regular text elements
+            const text = child.text || '';
+
+            // Handle empty text (might be line break)
+            if (text === '') {
+              return null;
+            }
+
+            // Create the formatted text element
+            let element: React.ReactNode = text;
+
+            // Apply formatting layers
+            if (child.underline) {
+              element = <u>{element}</u>;
+            }
+            if (child.bold) {
+              element = <strong>{element}</strong>;
+            }
+            if (child.italic) {
+              element = <em>{element}</em>;
+            }
+            if (child.strikethrough) {
+              element = <s>{element}</s>;
+            }
+            if (child.code) {
+              element = <code>{element}</code>;
+            }
+
+            return <React.Fragment key={childIndex}>{element}</React.Fragment>;
+          });
+
+          return (
+            <React.Fragment key={blockIndex}>
+              {content}
+              {blockIndex < richText.length - 1 && <br />}
+            </React.Fragment>
+          );
+        }
+
+        // Handle other block types like lists, headings, etc.
+        if (block.type === 'list') {
+          const ListTag = block.format === 'ordered' ? 'ol' : 'ul';
+          return (
+            <ListTag key={blockIndex}>
+              {block.children?.map((item: RichTextChild, itemIndex: number) => (
+                <li key={itemIndex}>{item.text || ''}</li>
+              ))}
+            </ListTag>
+          );
+        }
+
+        console.log('Unhandled block type:', block.type);
+        return null;
+      })
+      .filter(Boolean);
   };
 
   if (loading) {
@@ -144,7 +144,7 @@ const ProgramsCMSDemo: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {sortedPrograms.map((program: CMSProgram) => (
           <div key={program.id} className="space-y-4">
-            <Program 
+            <Program
               title={program.title || 'Untitled Program'}
               learnMoreLink={program.learnMoreLink || '#'}
             >

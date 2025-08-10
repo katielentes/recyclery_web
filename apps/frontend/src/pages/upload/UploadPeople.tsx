@@ -105,9 +105,17 @@ const CancelButton = styled.button`
   font-size: 16px;
   font-weight: 600;
 `;
-const Field = styled.input` margin:8px 0; padding:8px; width:100%; `;
-const TextArea = styled.textarea` margin:8px 0; padding:8px; width:100%; height:100px; `;
-
+const Field = styled.input`
+  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+`;
+const TextArea = styled.textarea`
+  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+  height: 100px;
+`;
 
 export default function UploadPeople() {
   const [file, setFile] = useState<File | null>(null);
@@ -118,11 +126,13 @@ export default function UploadPeople() {
   const { id } = useParams<{ id: string }>();
 
   const handleDrag = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault(); e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
     setDragActive(e.type === 'dragenter' || e.type === 'dragover');
   };
   const handleDrop = (e: DragEvent<HTMLDivElement>) => {
-    e.preventDefault(); e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
     setDragActive(false);
     if (e.dataTransfer.files[0]) setFile(e.dataTransfer.files[0]);
   };
@@ -158,11 +168,7 @@ export default function UploadPeople() {
     <Container>
       <Title>Update Person</Title>
       <form onSubmit={handleSubmit}>
-        <Field
-          placeholder="Person’s Name"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
+        <Field placeholder="Person’s Name" value={name} onChange={e => setName(e.target.value)} />
         <TextArea
           placeholder="Description"
           value={description}
@@ -195,9 +201,15 @@ export default function UploadPeople() {
 
         <ButtonGroup>
           <ConfirmButton type="submit">Save Person</ConfirmButton>
-          <CancelButton type="button" onClick={() => {
-            setFile(null); setDragActive(false);
-          }}>Cancel</CancelButton>
+          <CancelButton
+            type="button"
+            onClick={() => {
+              setFile(null);
+              setDragActive(false);
+            }}
+          >
+            Cancel
+          </CancelButton>
         </ButtonGroup>
       </form>
     </Container>

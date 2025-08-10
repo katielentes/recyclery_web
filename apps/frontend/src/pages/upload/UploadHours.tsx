@@ -21,7 +21,11 @@ const Title = styled.h2`
   margin-bottom: 10px;
   font-size: 24px;
 `;
-const TextArea = styled.textarea` width:100%; height:300px; padding:8px; `;
+const TextArea = styled.textarea`
+  width: 100%;
+  height: 300px;
+  padding: 8px;
+`;
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: center;
@@ -96,7 +100,9 @@ export default function UploadHours() {
         />
         <ButtonGroup>
           <ConfirmButton type="submit">Save Hours</ConfirmButton>
-          <CancelButton type="button" onClick={() => setHours('')}>Cancel</CancelButton>
+          <CancelButton type="button" onClick={() => setHours('')}>
+            Cancel
+          </CancelButton>
         </ButtonGroup>
       </form>
     </Container>

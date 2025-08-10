@@ -13,9 +13,9 @@ export default function Home() {
       <title>The Recyclery</title>
       <HeroSection />
       {isAuthenticated && <EditLink id="1"></EditLink>}
-      
+
       <ProgramsCMSDemo />
-      
+
       {/* <ProgramsSection /> */}
       <CalendarSection />
       <VideoSection />

@@ -6,7 +6,7 @@ interface EditLinkProps {
   className?: string;
 }
 
-export function EditPeople({ id, className = ''}: EditLinkProps) {
+export function EditPeople({ id, className = '' }: EditLinkProps) {
   const { isAuthenticated } = useUser();
   if (!isAuthenticated) {
     return null;
@@ -19,5 +19,5 @@ export function EditPeople({ id, className = ''}: EditLinkProps) {
         Edit Person
       </button>
     </Link>
-  )
+  );
 }

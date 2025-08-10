@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CMSProgram, cmsService } from '../services/cms';
+import { CMSProgram, cmsService } from '../services/cms.js';
 
 // Hook for fetching programs from CMS
 export function usePrograms() {
@@ -7,25 +7,25 @@ export function usePrograms() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await cmsService.getPrograms();
-        setPrograms(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch programs');
-        console.error('Error fetching programs:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchPrograms = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const data = await cmsService.getPrograms();
+      setPrograms(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch programs');
+      console.error('Error fetching programs:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchPrograms();
   }, []);
 
-  return { programs, loading, error, refetch: () => fetchPrograms() };
+  return { programs, loading, error, refetch: fetchPrograms };
 }
 
 // Hook for fetching a single program

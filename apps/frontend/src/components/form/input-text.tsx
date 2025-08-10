@@ -9,7 +9,7 @@ export type InputTextProps = {
   placeholder?: string;
   value?: string;
   required?: boolean;
-}
+};
 
 const InputText = ({ title, ...rest }: InputTextProps) => {
   return (

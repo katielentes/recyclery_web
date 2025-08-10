@@ -10,7 +10,7 @@ export type InputPasswordProps = {
   value?: string;
   required?: boolean;
   className?: string; // to allow for tailwind styling (?)
-}
+};
 
 const InputPassword = ({ title, ...rest }: InputPasswordProps) => {
   return (

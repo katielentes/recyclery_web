@@ -29,10 +29,7 @@
     "heroImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "allowedTypes": ["images", "files"]
     },
     "header": {
       "type": "string"
@@ -40,12 +37,7 @@
     "programType": {
       "type": "enumeration",
       "default": "open-shop",
-      "enum": [
-        "open-shop",
-        "freecyclery",
-        "ftwnb",
-        "classes"
-      ]
+      "enum": ["open-shop", "freecyclery", "ftwnb", "classes"]
     },
     "slug": {
       "type": "uid",

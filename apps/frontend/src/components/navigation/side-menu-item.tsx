@@ -35,7 +35,11 @@ export default function SideMenuItem({
       <div className="space-y-2 px-2">
         {items.map(item => {
           return (
-            <button key={item.title} onClick={() => setIsSideMenuOpen(!isSideMenuOpen)} className="w-full">
+            <button
+              key={item.title}
+              onClick={() => setIsSideMenuOpen(!isSideMenuOpen)}
+              className="w-full"
+            >
               <Link
                 to={item.destination}
                 className="w-full flex justify-start items-center gap-4 px-4 py-3 rounded-2xl bg-tan-500 hover:bg-tan-600 cursor-pointer transition-colors"
