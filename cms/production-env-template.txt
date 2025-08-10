@@ -1,0 +1,29 @@
+# Production Environment Variables for Render
+# Set these in your Render dashboard under Environment Variables
+
+# Database
+DATABASE_URL=your_production_database_url_here
+
+# App Keys (generate new ones for production)
+APP_KEYS=key1,key2,key3,key4
+
+# API Token Salt
+API_TOKEN_SALT=your_api_token_salt_here
+
+# Admin JWT Secret
+ADMIN_JWT_SECRET=your_admin_jwt_secret_here
+
+# JWT Secret
+JWT_SECRET=your_jwt_secret_here
+
+# Public URL (your Render app URL)
+PUBLIC_URL=https://recyclery-cms.onrender.com
+
+# CORS Origin (your Vercel frontend domains)
+CORS_ORIGIN=https://recyclery-web-frontend-orpin.vercel.app,https://recyclery-web-frontend.vercel.app,https://recyclery-web-frontend-git-cms.vercel.app
+
+# Log Level
+LOG_LEVEL=info
+
+# Port (Render will set this automatically)
+PORT=10000
