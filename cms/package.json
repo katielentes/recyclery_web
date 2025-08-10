@@ -10,6 +10,8 @@
     "dev": "strapi develop",
     "develop": "strapi develop",
     "start": "strapi start",
+    "start:prod": "strapi start",
+    "start:render": "strapi start",
     "start:custom": "node server.js",
     "dev:custom": "node server.js",
     "start:alt": "node server-alt.js",
@@ -41,7 +43,7 @@
     "typescript": "^5"
   },
   "engines": {
-    "node": ">=18.0.0 <=22.x.x",
+    "node": ">=18.0.0 <=24.x.x",
     "npm": ">=6.0.0"
   },
   "strapi": {
