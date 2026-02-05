@@ -53,7 +53,8 @@ function Freecyclery() {
       <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>freecyclery</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
-          Earn a free bike through our referral and fellowship programs.
+          Free repaired bike given away to the community (through our referral and fellowship
+          programs.)
         </p>
       </BgImage>
       {isAuthenticated && <EditLink id="7"></EditLink>}

@@ -9,11 +9,6 @@ export default function ProgramsSection() {
         <div className="space-y-4">
           <Program title={'open shop'} learnMoreLink={'/our-programs/openshop'}>
             Come work on your own bikes using our tools with the help of volunteer mechanics.
-            {/* <br />
-          <br />
-          For femme, trans, women and non-binary community,{' '}
-          <A to="/our-programs/ftwnb">FTWN-B Shop Time</A> (Sundays 3-6pm) is another opportunity to
-          work on your bike. */}
             <br />
             <br />
             <u>HOURS:</u>

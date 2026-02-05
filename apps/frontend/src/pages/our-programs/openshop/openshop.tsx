@@ -49,7 +49,7 @@ function OpenShop() {
       <BgImage image={heroimageURL} className="min-h-[32rem]">
         <H1>open shop</H1>
         <p className="text-body1 sm:text-heading2 pt-8 max-w-[56rem] font-brandon">
-          Use our tools to fix your own bike with the instruction of Recyclery mechanics.
+          Come work on your own bikes using our tools with the help of volunteer mechanics
         </p>
       </BgImage>
       {isAuthenticated && <EditLink id="5"></EditLink>}
@@ -59,17 +59,23 @@ function OpenShop() {
             <H2>what is open shop?</H2>
             <div className="space-y-4">
               <p className="font-brandon">
-                Open Shop is a program where you can work on your own bike with help from Recyclery
+                Open Shop is shop time where you can work on your own bike with help of volunteer
+                mechanics. All levels of experience are welcome. We strive to provide an open,
+                respectful and collaborative atmosphere free of mechanical elitism. Our volunteers
+                are happy to help you learn to get your bike running well.
+                {/* Open Shop is a program where you can work on your own bike with help from Recyclery
                 mechanics. All levels of experience are welcome. We strive to provide an open,
                 respectful and collaborative atmosphere free of mechanical elitism. One of our
-                volunteers will be happy to help you figure out how to get your bike running well.
+                volunteers will be happy to help you figure out how to get your bike running well. */}
               </p>
               <p className="font-brandon">
-                For those working on their own bicycles we suggest a $10/hour donation. This helps
-                us covering running costs like rent, tools.
+                {/* For those working on their own bicycles we suggest a $10/hour donation. This helps
+                us covering running costs like rent, tools. */}
+                Suggestion donation $10/ hr (no one is turned away). All are welcome.
               </p>
               <p className="font-brandon">
-                You may purchase new or used parts for affordable prices during Open Shop.
+                New or used parts are available for purchase.
+                {/* You may purchase new or used parts for affordable prices during Open Shop. */}
               </p>
               <p className="font-brandon">
                 For femme, trans, women and non-binary community,{' '}
