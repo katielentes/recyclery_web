@@ -90,7 +90,7 @@ function OpenShop() {
         <H2>hours</H2>
         <div className="space-y-4 font-brandon">
           <ul>
-            <li>Tuesdays 5-7pm</li>
+            <li>Mondays 5-7pm</li>
             <li>Thursdays 7-9pm</li>
             <li>Saturdays 11am-2pm</li>
           </ul>

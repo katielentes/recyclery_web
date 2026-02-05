@@ -69,7 +69,7 @@ export default function SideMenu({ isSideMenuOpen, setIsSideMenuOpen }: SideMenu
         <div className="border-[1px] border-tan-700" />
         <div className="flex flex-col gap-4 justify-center items-start">
           <Button>
-            <Link to="https://therecyclery.square.site/">Shop For Bikes</Link>
+            <Link to="https://therecyclery.square.site/">Shop Bikes</Link>
           </Button>
           <Button>
             <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">

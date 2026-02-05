@@ -19,7 +19,7 @@ export default function Footer() {
           </Button>
           <Button color="orange">
             <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
-              Join Our Newsletter
+            Sign Up For Our Newsletter
             </Link>
           </Button>
         </div>
