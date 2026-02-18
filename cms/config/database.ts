@@ -4,6 +4,10 @@ export default ({ env }) => {
   const client = env('DATABASE_CLIENT', 'sqlite');
   const databaseUrl = env('DATABASE_URL');
   const isSupabaseOrCloud = databaseUrl && (databaseUrl.includes('supabase') || databaseUrl.includes('sslmode='));
+  // Render/cloud: use smaller pool and longer timeout to avoid "Knex: Timeout acquiring a connection" on cold start
+  const poolMin = env.int('DATABASE_POOL_MIN', databaseUrl ? 0 : 2);
+  const poolMax = env.int('DATABASE_POOL_MAX', databaseUrl ? 5 : 10);
+  const acquireTimeout = env.int('DATABASE_CONNECTION_TIMEOUT', databaseUrl ? 90000 : 60000);
 
   const connections = {
     mysql: {
@@ -22,7 +26,7 @@ export default ({ env }) => {
           rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', true),
         },
       },
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: { min: poolMin, max: poolMax },
     },
     postgres: {
       connection: (() => {
@@ -59,7 +63,7 @@ export default ({ env }) => {
           },
         };
       })(),
-      pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
+      pool: { min: poolMin, max: poolMax },
     },
     sqlite: {
       connection: {
@@ -73,7 +77,7 @@ export default ({ env }) => {
     connection: {
       client,
       ...connections[client],
-      acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      acquireConnectionTimeout: acquireTimeout,
     },
   };
 };

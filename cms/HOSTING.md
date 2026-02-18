@@ -31,6 +31,30 @@ Reload your frontend; the 403 should be gone. If you add other content types the
 
 ---
 
+## Troubleshooting: "Knex: Timeout acquiring a connection" on Render deploy
+
+If the **build** succeeds but the **deploy** fails with:
+
+```text
+Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call?
+```
+
+Strapi is trying to connect to PostgreSQL at startup; the database (e.g. Supabase or Render Postgres) may be cold or slow to accept connections, so the first connection times out.
+
+**What we did in code:** The CMS `config/database.ts` now uses **smaller connection pool** and **longer acquire timeout** when `DATABASE_URL` is set (cloud): pool `min: 0`, `max: 5`, and `acquireConnectionTimeout: 90000` (90 seconds). That gives the DB time to wake up and avoids exhausting connections.
+
+**If it still fails on deploy:**
+
+1. **Retry the deploy** – Render often retries; the second run may succeed once the DB is ready.
+2. **Optional env on Render:** You can override in the Strapi service’s **Environment**:
+   - `DATABASE_CONNECTION_TIMEOUT=120000` (2 minutes)
+   - `DATABASE_POOL_MAX=3`
+3. **Database cold start:** If the DB is on a free tier that spins down (e.g. Supabase after inactivity), the first request to the DB after wake-up can be slow. Keeping the DB active or using a paid tier reduces this.
+
+After a successful start you’ll see “Strapi started successfully” and the admin URL; “No open ports detected” during the **failed** run just means Strapi exited before binding to the port (it crashed during DB bootstrap).
+
+---
+
 ## Troubleshooting: "Registration page" / database keeps resetting (Render free tier)
 
 If you open your CMS and see **Strapi’s “create first admin user” registration page** again, it means Strapi is seeing an **empty database**. All content and admin accounts are gone.
