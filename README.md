@@ -97,6 +97,10 @@ npm run lint
 - Use absolute imports where possible.
 - Keep application logic modular for reusability.
 
+## For stakeholders
+
+**Free-tier limits and gotchas:** If you are a stakeholder or decision-maker and need a clear overview of the risks and limits of using free-tier **Supabase**, **Render**, and **Strapi** (e.g. pausing, data loss, cold starts), see **[docs/NOTES_FOR_STAKEHOLDERS.md](docs/NOTES_FOR_STAKEHOLDERS.md)**.
+
 ## Contributing
 
 If you are contributing, ensure you follow the setup guide above and adhere to the repository’s coding standards. All pull requests must pass linting and formatting checks.

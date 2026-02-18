@@ -78,6 +78,17 @@ export interface CMSResponse<T> {
   };
 }
 
+export interface CMSTopBanner {
+  id: number;
+  documentId: string;
+  message: string;
+  link?: string;
+  linkText?: string;
+  enabled: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 class CMSService {
   private async fetchFromCMS<T>(endpoint: string): Promise<T> {
     try {
@@ -117,6 +128,17 @@ class CMSService {
   async getProgramsWithDetails(): Promise<CMSProgram[]> {
     const response = await this.fetchFromCMS<CMSResponse<CMSProgram[]>>('/programs?populate=*');
     return response.data;
+  }
+
+  // Get top banner (single type). Returns null if none or disabled.
+  async getTopBanner(): Promise<CMSTopBanner | null> {
+    try {
+      const response = await this.fetchFromCMS<{ data: CMSTopBanner | null }>('/top-banner');
+      const banner = response.data;
+      return banner && banner.enabled ? banner : null;
+    } catch {
+      return null;
+    }
   }
 }
 

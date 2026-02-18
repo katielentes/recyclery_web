@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CMSProgram, cmsService } from '../services/cms.js';
+import { CMSProgram, CMSTopBanner, cmsService } from '../services/cms.js';
 
 // Hook for fetching programs from CMS
 export function usePrograms() {
@@ -55,4 +55,26 @@ export function useProgram(id: number) {
   }, [id]);
 
   return { program, loading, error };
+}
+
+// Hook for fetching the top banner (single type)
+export function useTopBanner() {
+  const [banner, setBanner] = useState<CMSTopBanner | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBanner = async () => {
+      try {
+        const data = await cmsService.getTopBanner();
+        setBanner(data);
+      } catch {
+        setBanner(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBanner();
+  }, []);
+
+  return { banner, loading };
 }
