@@ -26,26 +26,34 @@ export const NavContent: NavContentType[] = [
         icon: <Bike className="size-6" />,
         title: 'Open Shop',
         description:
-          'Use our tools to fix your own bike with the instruction of Recyclery mechanics',
+          'Come work on your own bikes using our tools with the help of volunteer mechanics',
         destination: '/our-programs/openshop',
       },
       {
         icon: <Bike className="size-6" />,
-        title: 'Freecyclery',
-        description: 'Earn a free bike through our referral and fellowship programs',
-        destination: '/our-programs/freecyclery',
+        title: 'FTWN-B Open Shop',
+        description: 'Explore a safe space for under-represented members of the bike community',
+        destination: '/our-programs/ftwnb',
       },
       {
         icon: <Bike className="size-6" />,
-        title: 'FTWN-B',
-        description: 'Explore a safe space for under-represented members of the bike community',
-        destination: '/our-programs/ftwnb',
+        title: 'Freecyclery & Earn A Bike Programs',
+        description:
+          'Free repaired bike given away to the community (through our referral and fellowship programs.)',
+        destination: '/our-programs/freecyclery',
       },
       {
         icon: <Bike className="size-6" />,
         title: 'Classes',
         description: 'Learn about the process of maintaining and overhauling your own bike',
         destination: '/our-programs/classes',
+      },
+      {
+        icon: <Bike className="size-6" />,
+        title: 'Volunteer at the Recyclery',
+        description:
+          'Volunteer with the Recyclery to learn new skills, share knowledge with others and help your community gain access to bikes',
+        destination: '/support-us/donate-time',
       },
     ],
   },
@@ -72,8 +80,9 @@ export const NavContent: NavContentType[] = [
       },
       {
         icon: <Bike className="size-6" />,
-        title: 'Become a volunteer',
-        description: 'Help improve our programs by offering your skills and expertise',
+        title: 'Volunteer at the Recyclery',
+        description:
+          'Volunteer with the Recyclery to learn new skills, share knowledge with others and help your community gain access to bikes',
         destination: '/support-us/donate-time',
       },
     ],

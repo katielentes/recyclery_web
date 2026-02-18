@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 import squigglyLine from '../../../assets/images/our-programs/freecyclery/squiggly-line.svg';
-import { EditLink } from '../../generic/edit-image-button.js';
+import { Button } from '../../../components/generic/buttons.tsx';
 import { useUser } from '../../../hooks/useUser.tsx';
+import { EditLink } from '../../generic/edit-image-button.js';
 import { H2, Section } from '../../generic/styled-tags.tsx';
 
 export default function AboutSection({ imageURL }: { imageURL?: string }) {
@@ -10,10 +12,32 @@ export default function AboutSection({ imageURL }: { imageURL?: string }) {
     <Section className="lg:py-0 lg:grid lg:grid-cols-2 gap-24 items-center justify-items-center">
       <div>
         <H2>about our program</H2>
-        <p className="text-body2 font-brandon">
+        {/* <p className="text-body2 font-brandon">
           We work with local social service agencies to connect people in need with a free bike that
           was serviced by volunteer mechanics and checked over by a Recyclery mechanic.
-        </p>
+        </p> */}
+        <div className="space-y-4">
+          <p className="text-body2 font-brandon">
+            Donated bikes are repaired by volunteer mechanics and donated to those in need in our
+            community through our partner organizations.{' '}
+          </p>
+          <p className="text-body2 font-brandon">
+            Donate today and help provide new locks and helmets to Freecyclery recipients. $50
+            provides one lock and helmet set.
+          </p>
+          <Button color="orange">
+            <Link to="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=97B48AH3ZT92G">
+              Donate
+            </Link>
+          </Button>
+          <div className="">
+            <p className="text-body2 font-brandon underline">HOURS:</p>
+            <p className="text-body2 font-brandon">Mondays 12-3pm</p>
+            <p className="text-body2 font-brandon">Wednesdays 6-8pm</p>
+            <p className="text-body2 font-brandon">Thursday 10am-1pm</p>
+            <p className="text-body2 font-brandon">Sundays 1pm -3pm</p>
+          </div>
+        </div>
       </div>
       <div className="lg:relative w-full lg:h-[30rem] mt-8 lg:mt-0 flex justify-center">
         <img

@@ -7,16 +7,17 @@ interface ProgramProps {
   children: ReactNode;
   title: string;
   learnMoreLink: string;
+  buttonText?: string;
 }
 
-export default function Program({ children, title, learnMoreLink }: ProgramProps) {
+export default function Program({ children, title, learnMoreLink, buttonText }: ProgramProps) {
   return (
     <div className="space-y-4">
       <H3>{title}</H3>
       <p className="text-body2 font-brandon">{children}</p>
       <Button>
         <Link to={learnMoreLink} onClick={() => window.scrollTo(0, 0)}>
-          Learn More
+          {buttonText || 'Learn More'}
         </Link>
       </Button>
     </div>

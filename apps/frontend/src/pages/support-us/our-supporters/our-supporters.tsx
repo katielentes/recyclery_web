@@ -1,7 +1,7 @@
-import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 import { Award, DollarSign } from 'lucide-react';
-import { Button } from '../../../components/generic/buttons.tsx';
 import { Link } from 'react-router-dom';
+import { Button } from '../../../components/generic/buttons.tsx';
+import { H1, H2, H3, Section } from '../../../components/generic/styled-tags.tsx';
 
 function OurSupporters() {
   return (
@@ -49,7 +49,7 @@ function OurSupporters() {
           </Button>
           <Button>
             <Link to="https://therecyclery.us1.list-manage.com/subscribe?u=71e053371da882f0463a04165&id=6b561c7610">
-              Join Our Newsletter
+              Sign Up For Our Newsletter
             </Link>
           </Button>
         </div>
