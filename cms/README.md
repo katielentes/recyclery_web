@@ -36,9 +36,9 @@ yarn build
 
 Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
 
-```
-yarn strapi deploy
-```
+**Free & cheap hosting:** See **[HOSTING.md](./HOSTING.md)** for a guide to Render, Railway, Oracle Cloud (free VM), Fly.io, and cheap VPS options.
+
+If you use **PostgreSQL** in production (recommended on Render, Railway, Fly.io), install the driver: `npm install pg`.
 
 ## 📚 Learn more
 
