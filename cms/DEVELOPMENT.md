@@ -73,7 +73,8 @@ cms/
 │   └── server.ts         # Server configuration
 ├── src/
 │   ├── api/              # API endpoints and business logic
-│   │   └── program/      # Program content type
+│   │   ├── program/      # Program content type
+│   │   └── top-banner/   # Top Banner (single type) for site-wide announcements
 │   ├── components/       # Reusable components
 │   ├── extensions/       # Plugin extensions
 │   └── index.ts          # Application entry point
@@ -118,7 +119,7 @@ To point Strapi at your **existing Supabase** project (same DB as the website ba
    DATABASE_URL=postgresql://postgres.xxxx:YOUR_PASSWORD@aws-0-xx.pooler.supabase.com:5432/postgres?sslmode=require
    ```
 4. Keep your other Strapi env vars (`APP_KEYS`, `API_TOKEN_SALT`, `ADMIN_JWT_SECRET`, `JWT_SECRET`, etc.). Don’t remove them.
-5. Run `npm run build` then start Strapi (`npm run develop` or `npm run start:alt`). On first run against this DB, Strapi will create its tables in the `public` schema alongside your existing backend tables. You’ll see the **registration page** once—create your admin user, then in **Settings → Users & Permissions → Roles → Public** enable **find** and **findOne** for **Program**.
+5. Run `npm run build` then start Strapi (`npm run develop` or `npm run start:alt`). On first run against this DB, Strapi will create its tables in the `public` schema alongside your existing backend tables. You’ll see the **registration page** once—create your admin user, then in **Settings → Users & Permissions → Roles → Public** enable **find** and **findOne** for **Program**, and **find** for **Top Banner** (site-wide announcement banner).
 
 ## 🚨 Troubleshooting
 

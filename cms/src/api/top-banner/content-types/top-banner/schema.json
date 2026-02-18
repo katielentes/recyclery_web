@@ -1,0 +1,32 @@
+{
+  "kind": "singleType",
+  "collectionName": "top_banner",
+  "info": {
+    "singularName": "top-banner",
+    "pluralName": "top-banners",
+    "displayName": "Top Banner",
+    "description": "Site-wide banner for important announcements. Only one banner is used; when enabled it appears at the top of every page."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "string",
+      "required": true,
+      "maxLength": 500
+    },
+    "link": {
+      "type": "string"
+    },
+    "linkText": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
