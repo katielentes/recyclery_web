@@ -97,6 +97,10 @@ npm run lint
 - Use absolute imports where possible.
 - Keep application logic modular for reusability.
 
+## Deploying frontend to Vercel
+
+The frontend uses `apps/frontend/vercel.json` with an explicit **installCommand** that runs `npm install` from the monorepo root so workspace and optional dependencies (e.g. esbuild’s platform binary) are installed. **Do not** set a custom Install Command in the Vercel project that uses `--omit=optional` or `--no-optional`; esbuild and other tools need their optional dependencies on the build platform.
+
 ## For stakeholders
 
 **Free-tier limits and gotchas:** If you are a stakeholder or decision-maker and need a clear overview of the risks and limits of using free-tier **Supabase**, **Render**, and **Strapi** (e.g. pausing, data loss, cold starts), see **[docs/NOTES_FOR_STAKEHOLDERS.md](docs/NOTES_FOR_STAKEHOLDERS.md)**.

@@ -1,20 +1,9 @@
 {
+  "installCommand": "cd ../.. && npm install",
   "rewrites": [
-    {
-      "source": "/images/:id",
-      "destination": "https://recyclery-web-backend-six.vercel.app/images/:id"
-    },
-    {
-      "source": "/people/:id",
-      "destination": "https://recyclery-web-backend-six.vercel.app/people/:id"
-    },
-    {
-      "source": "/hours/:id",
-      "destination": "https://recyclery-web-backend-six.vercel.app/hours/:id"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/images/:id", "destination": "https://recyclery-web-backend-six.vercel.app/images/:id" },
+    { "source": "/people/:id", "destination": "https://recyclery-web-backend-six.vercel.app/people/:id" },
+    { "source": "/hours/:id", "destination": "https://recyclery-web-backend-six.vercel.app/hours/:id" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
