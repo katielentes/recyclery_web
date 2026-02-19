@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd ../.. && npm install",
+  "installCommand": "cd ../.. && npm install && npm install @esbuild/linux-x64 --no-save",
   "buildCommand": "cd ../.. && npx turbo run build --filter=@full-stack-template-typescript-turbo-repo/frontend",
   "outputDirectory": "dist",
   "rewrites": [
