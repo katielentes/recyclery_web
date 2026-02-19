@@ -1,5 +1,7 @@
 {
   "installCommand": "cd ../.. && npm install",
+  "buildCommand": "cd ../.. && npx turbo run build --filter=@full-stack-template-typescript-turbo-repo/frontend",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/images/:id", "destination": "https://recyclery-web-backend-six.vercel.app/images/:id" },
     { "source": "/people/:id", "destination": "https://recyclery-web-backend-six.vercel.app/people/:id" },
